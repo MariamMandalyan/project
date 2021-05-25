@@ -1,3 +1,3 @@
-import {store,persistor} from './store';
+import store from './store';
 
-export {store,persistor};
+export default store;

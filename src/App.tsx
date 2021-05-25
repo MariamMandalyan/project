@@ -11,6 +11,9 @@ import { useTranslation } from 'react-i18next';
 import AppMetrica from 'react-native-appmetrica';
 import Loading from './Loading'
 import PushNotification from 'react-native-push-notification';
+import { Provider as ReduxProvider, useSelector } from 'react-redux';
+import store from '../src/store';
+
 //AsyncStorage.clear()
 const App: React.FC = () => {
 	useEffect(() => {
@@ -21,10 +24,11 @@ const App: React.FC = () => {
 	}, []);
 	// if (load) return <Loading />
 	return (
+		   <ReduxProvider store={store}>
 		<SafeAreaView style={{ flex: 1 }}>
-			<StatusBar barStyle="light-content" backgroundColor="#2f879d" />
 			<Navigator />
 		</SafeAreaView>
+		</ReduxProvider>
 	);
 };
 export default App;
